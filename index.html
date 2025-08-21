@@ -1,26 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOC & Airticket Assistance</title>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f8fa;
+        scroll-behavior: smooth;
+    }
+    header {
+        background: #0d47a1;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    nav a:hover {
+        color: #d4af37;
+    }
+    .hero {
+        background: url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+        color: white;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+        background: rgba(0,0,0,0.5);
+        padding: 10px;
+        border-radius: 8px;
+        animation: slideInFromTop 1.5s ease-out;
+    }
+    .hero p {
+        font-size: 1.2rem;
+        background: rgba(0,0,0,0.4);
+        padding: 8px;
+        border-radius: 8px;
+        animation: slideInFromBottom 1.5s ease-out;
+    }
+    section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+    }
+    .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .service {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+    }
+    .service h3 {
+        color: #0d47a1;
+        margin-top: 10px;
+    }
+    .service i {
+        font-size: 2.5rem;
+        color: #d4af37;
+    }
+    .quote {
+        background: #d4af37;
+        color: black;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        font-style: italic;
+        margin: 30px 0;
+        font-weight: bold;
+        animation: fadeIn 2s ease-in-out;
+    }
+    form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        background: #0d47a1;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #08306b;
+    }
+    .contact-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+    }
+    .contact-buttons a {
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+    .whatsapp {
+        background: #25D366;
+    }
+    .gmail {
+        background: #D44638;
+    }
+    footer {
+        background: #0d47a1;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    @keyframes slideInFromTop {
+        from {transform: translateY(-50px); opacity: 0;}
+        to {transform: translateY(0); opacity: 1;}
+    }
+    @keyframes slideInFromBottom {
+        from {transform: translateY(50px); opacity: 0;}
+        to {transform: translateY(0); opacity: 1;}
+    }
+</style>
 </head>
 <body>
-    <h2>User Registration Form</h2>
-    <form action="register.php" method="POST">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+<header>
+    <h1>NOC & Airticket Assistance</h1>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#quote">Quote</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+<div class="hero">
+    <h1>Your Travel Partner</h1>
+    <p>Making your journey smooth and simple</p>
+</div>
 
-        <label for="confirm_password">Confirm Password:</label><br>
-        <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+<section id="services">
+    <h2 style="text-align:center;">Our Services</h2>
+    <div class="services">
+        <div class="service">
+            <i class="fas fa-plane-departure"></i>
+            <h3>International Flight Ticketing</h3>
+            <p>Book affordable and reliable flight tickets to destinations worldwide with the best deals and offers. We ensure quick confirmations and flexible options.</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-passport"></i>
+            <h3>US Visa Appointment Assistance</h3>
+            <p>Professional help in booking US visa appointments, preparing documents, and guiding you through every step for a successful application process.</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-file-signature"></i>
+            <h3>No Objection Certificate (NOC) Processing</h3>
+            <p>Hassle-free NOC application processing from the Ministry of Education, ensuring you get your document approved quickly for overseas study or travel.</p>
+        </div>
+    </div>
+</section>
 
-        <input type="submit" value="Register">
+<section id="quote">
+    <div class="quote">
+        “From NOC processing to cheap flight tickets, we make your travel journey smooth and simple.  
+        Contact at - 9848860852”
+    </div>
+</section>
+
+<section id="contact">
+    <h2 style="text-align:center;">Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
     </form>
+
+    <div class="contact-buttons">
+        <a class="whatsapp" href="https://wa.me/9848860852" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a class="gmail" href="mailto:applynoc2025@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 NOC & Airticket Assistance | Follow us on Facebook & Instagram</p>
+</footer>
+
 </body>
 </html>
